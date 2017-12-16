@@ -1,0 +1,138 @@
+<h2>View Places</h2>
+<form #fForm="ngForm">
+  <div class="row">
+    <div class="col-6">
+      <div class="text-center form-group">
+        <img class="rounded" id="myimg" src="./assets/images/error-img.png" onerror="this.src='./assets/images/error-img.png'" data-holder-rendered="true"
+          style="width: 100%; height: 100%;">
+      </div>
+      <div class="form-group" [hidden]="action === 'view'">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <input type="file" #fileInput placeholder="Upload file..." />
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <label for="displayname" class="col-form-label">Display name</label>
+        <input class="form-control" name="displayname" required (change)="changeData = true" [disabled]="action === 'view'" [(ngModel)]='data.display_name'
+          type="text" #displayname="ngModel" minlength="6" placeholder="Display name" id="displayname">
+        <div *ngIf="displayname.invalid && (displayname.dirty || displayname.touched)" class="invalid-feedback">
+          <div *ngIf="displayname.errors.required">
+            Display name is required.
+          </div>
+          <div *ngIf="displayname.errors.minlength">
+            Display name must be at least 6 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="description" class="col-form-label">Description</label>
+        <textarea class="form-control" required (change)="changeData = true" [disabled]="action === 'view'" [(ngModel)]='data.description'
+          placeholder="Description" name="description" #description="ngModel" id="description"></textarea>
+        <div *ngIf="description.invalid && (description.dirty || description.touched)" class="invalid-feedback">
+          <div *ngIf="description.errors.required">
+            Description is required.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="address" class="col-form-label">Address</label>
+        <input class="form-control" required (change)="changeData = true" [disabled]="action === 'view'" [(ngModel)]='data.address'
+          type="text" #address="ngModel" name="address" placeholder="Address" id="address">
+        <div *ngIf="address.invalid && (address.dirty || address.touched)" class="invalid-feedback">
+          <div *ngIf="address.errors.required">
+            Address is required.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="city" class="col-form-label">City</label>
+        <input class="form-control" required (change)="changeData = true" [disabled]="action === 'view'" [(ngModel)]='data.city'
+          type="text" #city="ngModel" name="city" placeholder="City" id="city">
+        <div *ngIf="city.invalid && (city.dirty || city.touched)" class="invalid-feedback">
+          <div *ngIf="city.errors.required">
+            City is required.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="phone" class="col-form-label">Phone</label>
+        <input class="form-control" required (change)="changeData = true" [disabled]="action === 'view'" [(ngModel)]='data.phone_number'
+          type="text" #phone="ngModel" name="phone" placeholder="01646938528" id="phone">
+        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="invalid-feedback">
+          <div *ngIf="phone.errors.required">
+            Phone is required.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="email" class="col-form-label">Email</label>
+        <input class="form-control" required (change)="changeData = true" [disabled]="action === 'view'" [(ngModel)]='data.email'
+          type="email" #email="ngModel" name="email" placeholder="email@mail.com" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <div *ngIf="email.invalid  && (email.dirty || email.touched)" class="invalid-feedback">
+          <div *ngIf="email.errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="email.errors.pattern">
+            Email must contain at least the @ character
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="price" class="col-form-label">Price limit</label>
+        <input class="form-control" required (change)="changeData = true" [disabled]="action === 'view'" [(ngModel)]='data.price_limit'
+          type="text" #price="ngModel" name="price" placeholder="69.000-1.950.000" id="price">
+        <div *ngIf="price.invalid && (price.dirty || price.touched)" class="invalid-feedback">
+          <div *ngIf="price.errors.required">
+            Price is required.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="timeopen" class="col-form-label">Time open</label>
+        <input class="form-control" required (change)="changeData = true" [disabled]="action === 'view'" [(ngModel)]='data.time_open'
+          type="text" #timeopen="ngModel" name="timeopen" placeholder="13:45:00" id="timeopen">
+        <div *ngIf="timeopen.invalid && (timeopen.dirty || timeopen.touched)" class="invalid-feedback">
+          <div *ngIf="timeopen.errors.required">
+            Time open is required.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="timeclose" class="col-form-label">Time close</label>
+        <input class="form-control" required (change)="changeData = true" [disabled]="action === 'view'" [(ngModel)]='data.time_close'
+          type="text" #timeclose="ngModel" name="timeclose" placeholder="13:45:00" id="timeclose">
+        <div *ngIf="timeclose.invalid && (timeclose.dirty || timeclose.touched)" class="invalid-feedback">
+          <div *ngIf="timeclose.errors.required">
+            Time close is required.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label for="wifi" class="col-form-label">Wifi password</label>
+        <input class="form-control" required (change)="changeData = true" [disabled]="action === 'view'" [(ngModel)]='data.wifi_password'
+          type="text" #wifi="ngModel" name="wifi" placeholder="12345678" id="wifi">
+        <div *ngIf="wifi.invalid && (wifi.dirty || wifi.touched)" class="invalid-feedback">
+          <div *ngIf="wifi.errors.required">
+            Wifi is required.
+          </div>
+        </div>
+      </div>
+      <div class="row" [hidden]="action === 'view'">
+        <select #categoryid="ngModel" name="categoryid" id="categoryid" class="custom-select d-block my-3" [(ngModel)]='data.category_id' required>
+          <option value="">Open this select menu</option>
+          <option *ngFor="let c of category"  value="{{c.id}}">{{c.name}}</option>
+        </select>
+      </div>
+      <div [hidden]="action === 'created' || action === 'view'" style="margin-top: 10px">
+        <button type="button" (click)="updateData()" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-default">Cancel</button>
+      </div>
+      <div [hidden]="action === 'view' || action === 'edit'" style="margin-top: 10px">
+        <button type="submit" [disabled]="!fForm.form.valid" (click)="createdPlaces()" class="btn btn-primary">Ceated places</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+      </div>
+    </div>
+  </div>
+</form>

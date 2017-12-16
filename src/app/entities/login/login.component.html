@@ -1,0 +1,27 @@
+<div class="container">
+  <div id="login">
+    <form>
+      <fieldset class="clearfix">
+        <div>
+          <span class="fontawesome-user"></span>
+          <input type="text" [(ngModel)]="model.username" name="username" minlength="6" required>
+        </div>
+        <!-- <h2>{{user.username}} details!</h2> -->
+        <!-- JS because of IE support; better: placeholder="Username" -->
+        <p>
+          <span class="fontawesome-lock"></span>
+          <input type="password" [(ngModel)]="model.password" name="password" required>
+        </p>
+        <!-- JS because of IE support; better: placeholder="Password" -->
+        <p>
+          <input type="submit" (click)="login()" value="Sign In">
+        </p>
+      </fieldset>
+    </form>
+    <p>Not a member?
+      <a href="/" class="blue">Sign up now</a>
+      <span class="fontawesome-arrow-right"></span>
+    </p>
+  </div>
+  <!-- end login -->
+</div>

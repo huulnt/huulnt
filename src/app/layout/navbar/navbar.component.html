@@ -1,0 +1,39 @@
+<!-- Page Content Holder -->
+<div id="content">
+  <nav class="navbar navbar-default ">
+    <div class="">
+      <div class="navbar-header">
+        <button type="button" id="sidebarCollapse" (click)="onClick()" class="navbar-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="float-right" id="profile">
+      <a class="navbar-brand ">
+        <img width="30" height="30" class="d-inline-block align-top rounded-circle"> Hi {{user.display_name}}
+      </a>
+    </div>
+  </nav>
+  <div id="container">
+    <router-outlet>
+      <!-- <span *ngIf="showLoader" class="loading"></span> -->
+      <div class="container" *ngIf="showLoader">
+        <div class="row">
+          <div id="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="lading"></div>
+          </div>
+        </div>
+      </div>
+    </router-outlet>
+  </div>
+</div>

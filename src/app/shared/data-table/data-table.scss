@@ -1,0 +1,174 @@
+
+:host /deep/ ng2-smart-table {
+    display: block;
+    overflow: auto;
+    
+    table {
+        overflow: scroll;
+    }
+
+    *{
+        font-family: 'GEInspiraSans', sans-serif;
+        line-height: 1.33333;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;  
+        font-size: 1rem;
+    }
+
+    .ng2-smart-titles 
+    {
+        .ng2-smart-sort-link {
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: #677e8c;
+            font-weight: 400;
+            display: inline-block;
+            line-height: 1.23;
+        }
+        th.itemDescription {
+            min-width: 300px;
+        }
+    }
+
+    .ng2-smart-filters input-filter input {
+        text-align: left;
+        height: 2em;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        padding: 0 .33333rem;
+        color: #2c404c;
+    }
+
+    input-filter input {
+        padding: 0 !important;
+        font-weight: 100 !important;
+    }
+
+    table thead th {
+        vertical-align: top !important;
+        line-height: 1.33;
+    }
+
+    table td, table th {
+        border-bottom: 1px solid #c5d1d8;
+    }
+    .ng2-smart-filters th {
+        border-top: 1px solid gray;
+        border-bottom: 1px solid gray;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+.number-of-row-chosen {
+    .col {
+        padding-left: 5px;
+    }
+    .dropdown-items {
+        top: auto;
+        bottom: 100%;
+        padding: 0;
+        margin: 0 0 2px 0;
+        box-sizing: border-box;
+        width: 48.8594px;
+        max-width: 48.8594px;
+        min-width: 48.8594px !important;
+        max-height: 162px;
+        background-color: #fff;
+        border: 1px solid gray;
+        border-radius: 0;
+
+        .dropdown-option {
+            height: 2em;
+            line-height: 2em;
+            cursor: pointer;
+            align-items: center;
+            text-align: center;
+        }
+        .dropdown-option.selected {
+            background-color: #09819c!important;
+            color: #fff;
+        }
+        .dropdown-option:hover {
+            background-color: #d3d3d3;
+        }
+    }
+
+    .dropdown-toggle {
+        cursor: pointer;
+    }
+
+    .dropdown-toggle::after{
+        background: url("../../../content/images/px-utl-chervon-down.png") no-repeat center center;
+        width: 16px;
+        height: 16px;
+        object-fit: contain;
+        background-size: contain;
+        border: 0;
+        vertical-align: 0;
+    }
+    .rowsPerPage {
+        color: gray;
+    }
+    .number-of-page {
+        color: #007acc;
+    }
+    .number-of-page:visited {
+        color: #2c404c;
+    }
+}
+
+.table-footer {
+    border-bottom: 1px solid gray;
+    border-radius: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+}
+
+.pagination {
+    
+    .btn {
+        min-width: 20px;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    .page-number {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        margin: 0 5px;
+        text-align: center;
+        &.selected {
+            border: 1px #889aa5 solid;
+            color: #007acc;
+        }
+        &.selected:hover {
+            background-color: #c5d1d8;
+        }
+    }
+
+    .summary {
+        cursor: default;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: .3;
+}

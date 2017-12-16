@@ -1,0 +1,40 @@
+<div>
+    <ng2-smart-table class="table table-striped" [settings]="settings" [source]="source" class="table table-striped"></ng2-smart-table>
+    <div class="table-footer d-flex row align-items-center justify-content-between mx-0">
+        <div class="number-of-row-chosen d-flex">
+            <span class="rowsPerPage mr-2">Rows per page</span>
+            <div ngbDropdown placement="top-right" class="d-inline ">
+                <div id="dropdownBasic2" ngbDropdownToggle class="number-of-page">{{source.pagingConf.perPage}}</div>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic2" class="dropdown-items">
+                    <div class="dropdown-option" 
+                    *ngFor="let option of pageSizes"
+                    [class.selected]="source.pagingConf.perPage==option"
+                    (click)="setNumberItemOfPage(option)">{{option}}</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pagination d-flex align-items-center justify-content-center">
+            <span class="summary mr-3">
+                <strong>{{ numberOfRecordOfThisPage + "-" + (source.pagingConf.perPage*(source.pagingConf.page) > source.filteredAndSorted.length ? source.filteredAndSorted.length : source.pagingConf.perPage*(source.pagingConf.page))}}</strong>
+                <span>of</span>
+                <span>{{source.filteredAndSorted.length}}</span>
+            </span>
+            <div 
+                (click)="source.setPaging(source.pagingConf.page -1, source.pagingConf.perPage);"
+                [class.disabled]="source.pagingConf.page==1">
+                <!-- <px-icon icon="px-nav:back"></px-icon> -->
+            </div>
+            <div class="page-number" 
+                *ngFor="let index of pages"
+                [class.selected]="index==source.pagingConf.page"
+                (click)="index > 0 && source.setPaging(index, source.pagingConf.perPage);"
+            >{{index > 0 ? index : '...'}}</div>
+            <div id="next"
+            (click)="source.setPaging(source.pagingConf.page + 1, source.pagingConf.perPage);"
+            [class.disabled]="source.pagingConf.page==numberOfPage || !numberOfPage">
+                <!-- <px-icon icon="px-nav:next"></px-icon> -->
+            </div>
+        </div>
+    </div>
+</div>

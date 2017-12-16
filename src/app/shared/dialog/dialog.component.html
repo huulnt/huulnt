@@ -1,0 +1,18 @@
+<div class="modal-header" *ngIf="type!=='picture'">
+  <h5 class="modal-title" [style.color]="titleColor">{{title}}</h5>
+</div>
+<div class="modal-body" *ngIf="type!=='picture'">
+  <p *ngIf="type!=='input'" [innerHTML]="message"></p>
+  <textarea style="width:100%" *ngIf="type==='input'" rows="3" [(ngModel)]="input" [placeholder]="placeholder"></textarea>
+</div>
+<div class="modal-footer" *ngIf="type!=='picture'">
+  <button type="button" class="btn btn-secondary" *ngIf="type==='confirm'" (click)="activeModal.dismiss(false)">{{buttonCancelLabel}}</button>
+  <button type="button" class="btn btn-secondary" (click)="activeModal.close(input)" [disabled]="type==='input' && !input">{{buttonLabel}}</button>
+</div>
+
+<div class="popup-image" *ngIf="type==='picture'">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss(false)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <img [src]="imageUrl" />
+</div>
